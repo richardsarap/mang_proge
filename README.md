@@ -7,4 +7,3 @@ Davai, ma ei viitsi üksi ära teha seda.
 üks muudatus
 # see on minu esimene versioon
 Haige värk ikka
-üks muudatus
