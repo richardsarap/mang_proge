@@ -1,6 +1,6 @@
 
 # mang_proge
-Davai
+Davai!
 # git commit -m"versioon1"
 
 
