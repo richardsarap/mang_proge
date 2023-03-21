@@ -5,6 +5,8 @@ Davai, ma ei viitsi üksi ära teha seda.
 
 
 üks muudatus
-# see on minu esimene versioon
+# git commit -m"versioon1"
 Haige värk ikka
+
 üks muudatus
+kolm p6rsast
