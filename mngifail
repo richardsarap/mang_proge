@@ -1,1 +1,39 @@
-oki
+import pygame as pg
+import random
+import time
+
+aeg = pg.time.Clock()
+
+pg.init()
+
+screen = pg.display.set_mode((800,400))
+
+class ruut:
+def __init__(self, küljepikkus):
+self.küljepikkus = küljepikkus
+
+gameplay = True
+while gameplay:
+
+for event in pg.event.get():
+if event.type == pg.QUIT:
+gameplay = False
+break
+screen.fill((255,255,255))
+r = random.randint(20, 50)
+x = random.randint(r, 800-r)
+y = random.randint(r, 400-r)
+X = x+r
+Y = y+r
+number = 1
+number_asukoht = pg.display.set_mode((X, Y))
+number_nimi = number, True, (255, 255, 255)
+tekstRuut = number_nimi.get_rect()
+
+for ring in range (4):
+pg.draw.circle(screen, (255, 0, 0), (x, y), r, r)
+number_asukoht.fill(white)
+number_asukoht.blit(number_nimi)
+aeg.tick(4)
+
+pg.display.update()
