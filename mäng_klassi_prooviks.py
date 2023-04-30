@@ -1,22 +1,39 @@
 import pygame, sys, random
 
 pygame.init()
-laius, kõrgus = 400, 400
+laius, kõrgus = 600, 600
 screen = pygame.display.set_mode((laius, kõrgus))
 
-for i in range(5):
-    pygame.draw.line(screen, (255, 255, 255), (laius // 5 * i, 0), (laius // 5 * i, kõrgus)) #horisontaalsed jooned
-    pygame.draw.line(screen, (255, 255, 255), (0, kõrgus // 5 * i), (laius, kõrgus // 5 * i)) # vertikaalsed jooned
+#font
+font = pygame.font.SysFont("arialblack", 40)
+
+#värvid
+TEXT_COL = (255, 255, 255)
 
 
-tee_ruut = True
+def draw_text(text, font, text_col, x, y):
+  img = font.render(text, True, text_col)
+  screen.blit(img, (x, y))
+
+
+
+tee_ruut = False
 peida_ruut = False
+jooned = False
+
+
+
+
 kõik_ruudud =[] #  salvestada koordinaadid ja teada, mitme ruudu koordinaadid seal on
 õiged = 0#  vaja, et peale ühte "levelit" saaks aru, et on vaja teha juurde üks ruut
 vajutused = 0#  loeb mitu korda on vajutatud ühes levelis ja vaatab, kas vajutatakse õiges järjeskorras
+i = 0# vaja põhimõtteliselt selleks, et aru saada, kas on veel vaja ruute kuvada või mitte
 
-i = 0#  vaja põhimõtteliselt selleks, et aru saada, kas on veel vaja ruute kuvada või mitte
+algus_tekst = draw_text("Space, et alusatada", font, TEXT_COL, 60, 250)
+algus_tekst = True
+
 while True:
+
     pygame.time.Clock().tick(1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -35,6 +52,17 @@ while True:
                     õiged += 1
                     tee_ruut = True
                     vajutused = 0
+
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                screen.fill((0, 0, 0))
+                algus_tekst = False
+                tee_ruut = True
+                for u in range(5):
+                    pygame.draw.line(screen, (255, 255, 255), (laius // 5 * u, 0),
+                                     (laius // 5 * u, kõrgus))  # horisontaalsed jooned
+                    pygame.draw.line(screen, (255, 255, 255), (0, kõrgus // 5 * u),
+                                     (laius, kõrgus // 5 * u))  # vertikaalsed jooned
 
 
     if peida_ruut:#   Peidab ruudu
