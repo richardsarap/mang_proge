@@ -3,6 +3,4 @@
 Davai!
 # git commit -m"versioon1"
 
-
-üks muudatus
-# see on minu esimene versioon
+#Klassis proovimise mängule läheb juurde kindlasti mingisugune starting page. Ja pärast tahaks veel mingid erinevad levelid sisse kirjutada.
