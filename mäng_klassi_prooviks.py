@@ -8,18 +8,18 @@ screen = pygame.display.set_mode((laius, kõrgus))
 font = pygame.font.SysFont("arialblack", 40)
 
 #värvid
-TEXT_COL = (255, 255, 255)
+teksti_värv = (255, 255, 255)
 
 
-def draw_text(text, font, text_col, x, y):
-  img = font.render(text, True, text_col)
-  screen.blit(img, (x, y))
+def kirjuta(text, font, teksti_värv, x, y):
+  asi = font.render(text, True, teksti_värv)
+  screen.blit(asi, (x, y))
 
 
 
 tee_ruut = False
 peida_ruut = False
-jooned = False
+
 
 
 kõik_ruudud =[] #  salvestada koordinaadid ja teada, mitme ruudu koordinaadid seal on
@@ -28,10 +28,11 @@ vajutused = 0#  loeb mitu korda on vajutatud ühes levelis ja vaatab, kas vajuta
 i = 0# vaja põhimõtteliselt selleks, et aru saada, kas on veel vaja ruute kuvada või mitte
 
 screen.fill((71, 30, 255))
-algus_tekst = draw_text("Space, et alusatada", font, TEXT_COL, 60, 250)
+algus_tekst = kirjuta("Space, et alusatada", font, teksti_värv, laius // 4.5, kõrgus // 2)# peaks toimima
 
 algus_tekst = True
 elud = 3
+
 mäng = True
 while mäng == True:
 
@@ -82,9 +83,9 @@ while mäng == True:
                 tee_ruut = True
                 for u in range(5):
                     pygame.draw.line(screen, (255, 255, 255), (laius // 5 * u, 0),
-                                     (laius // 5 * u, kõrgus))  # horisontaalsed jooned
+                                     (laius // 5 * u, kõrgus))  # vertikaalsed jooned
                     pygame.draw.line(screen, (255, 255, 255), (0, kõrgus // 5 * u),
-                                     (laius, kõrgus // 5 * u))  # vertikaalsed jooned
+                                     (laius, kõrgus // 5 * u))  # horisontaalsed jooned
 
 
 
